@@ -1,5 +1,3 @@
-File Name - Jenkinsfile
-
 pipeline {
     agent any
     environment {
@@ -9,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/rhtvs32/ShoibJAVAapp.git'  // Replace with your GitHub repo URL
+                git 'https://github.com/rhtvs32/ShoibJAVAapp.git'
             }
         }
         stage('Build') {
@@ -19,7 +17,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'docker run --rm -v $(pwd):/app openjdk:11-jdk-slim java -cp /app Main'  // Basic test (expand with real tests)
+                sh 'docker run --rm -v $(pwd):/app openjdk:11-jdk-slim java -cp /app Main'
             }
         }
         stage('SonarQube Analysis') {
