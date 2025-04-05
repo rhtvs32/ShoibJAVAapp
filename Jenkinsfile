@@ -5,11 +5,6 @@ pipeline {
         SONARQUBE_URL = 'http://sonarqube:9000'
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/rhtvs32/ShoibJAVAapp.git'
-            }
-        }
         stage('Build') {
             steps {
                 sh 'docker run --rm -v $(pwd):/app openjdk:17-jdk-slim javac /app/Main.java'
